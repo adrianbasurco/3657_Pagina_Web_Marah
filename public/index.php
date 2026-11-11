@@ -55,7 +55,7 @@ $uri = parse_url(
 // ELIMINAR RUTA BASE
 // =====================================
 
-$basePath = '/PROYECTO_MARAH/public';
+   $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 if (str_starts_with($uri, $basePath)) {
 
