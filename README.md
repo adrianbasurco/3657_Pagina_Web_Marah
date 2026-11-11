@@ -6,10 +6,10 @@ Curso: Programación Web Básica · Periodo 2026-20
 
 ## Mockup (HTML + Tailwind) – PA2
 
-## Requisitos
+### Requisitos
 - Node.js 18 o superior (incluye npm)
 
-## Instalación y ejecución
+### Instalación y ejecución
 ```bash
 # 1. Instalar dependencias (Tailwind CSS)
 npm install
@@ -26,7 +26,7 @@ Si haces cambios y quieres que se actualice solo:
 npm run dev
 ```
 
-## Estructura del proyecto
+### Estructura del proyecto
 ```
 marah-mockup/
 ├── package.json          # Dependencias y scripts (build, dev)
@@ -38,12 +38,12 @@ marah-mockup/
     └── output.css        # CSS generado por "npm run build"
 ```
 
-## Notas
+### Notas
 - El mockup es estático: no integra PHP, MySQL ni APIs. El buscador y el formulario son maquetas visuales.
 - Todo el estilo se hace con clases utilitarias de Tailwind; no se usan estilos inline.
 - Es responsivo mediante prefijos `sm:`, `md:` y `lg:`.
 - Alcance completo del proyecto: ver el documento de alcance incluido.
--La API se documenta en la sección de abajo.
+- La API se documenta en la sección de abajo.
 
 ## API REST (PHP + MySQL) – PA3
 
