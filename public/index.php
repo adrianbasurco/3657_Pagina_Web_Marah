@@ -17,10 +17,11 @@ CorsMiddleware::handle();
 // CONEXIÓN
 // =====================================
 
-    try{
+try{
         $database = new Database();
         $db = $database->connect();
-    } catch (PDOException $e) {
+    } 
+catch (PDOException $e) {
         Response::error('Error al conectar con la base de datos', 500);
     }
 
