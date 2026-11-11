@@ -35,8 +35,8 @@ class Productos
 
         return $stmt->fetchAll();
     }
-        public function obtenerPorId(int $id): array|false
-{
+    public function obtenerPorId(int $id): array|false
+    {
         $sql = "
             SELECT
                 p.id_producto,
@@ -52,9 +52,30 @@ class Productos
             AND p.activo = 1
     ";
 
-    $stmt = $this->db->prepare($sql);
-    $stmt->execute(['id' => $id]);
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
 
-    return $stmt->fetch();
+        return $stmt->fetch();
+    }
+    public function crear(array $datos): int
+    {
+        $sql = "
+        INSERT INTO productos
+            (id_categoria, nombre, descripcion, presentacion, precio, stock)
+        VALUES
+            (:id_categoria, :nombre, :descripcion, :presentacion, :precio, :stock)
+    ";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            'id_categoria' => $datos['id_categoria'],
+            'nombre'       => $datos['nombre'],
+            'descripcion'  => $datos['descripcion'] ?? null,
+            'presentacion' => $datos['presentacion'],
+            'precio'       => $datos['precio'],
+            'stock'        => $datos['stock'] ?? 0,
+        ]);
+
+        return (int) $this->db->lastInsertId();
+    }
 }
-}  

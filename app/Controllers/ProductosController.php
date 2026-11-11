@@ -36,4 +36,14 @@ class ProductosController
             'Producto encontrado'
         );
     }
+    public function store(): void
+    {
+        $datos = Request::body();
+        $id = $this->productos->crear($datos);
+        Response::success(
+            ['id_producto' => $id],
+            'Producto creado correctamente',
+            201
+        );
+    }
 }

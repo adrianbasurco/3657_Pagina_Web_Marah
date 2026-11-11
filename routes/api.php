@@ -21,3 +21,8 @@ $router->get(
     '/api/productos/{id}',
     [$productosController, 'show']
 );
+// Crear un producto
+$router->post(
+    '/api/productos',
+    [$productosController, 'store']
+);
