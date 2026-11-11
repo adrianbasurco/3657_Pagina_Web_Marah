@@ -7,10 +7,18 @@ use PDOException;
 
 class Database
 {
-    private string $host = 'localhost';
-    private string $database = 'marah_db';
-    private string $username = 'root';
-    private string $password = 'NEO2026*#';
+    private string $host;
+    private string $database;
+    private string $username;
+    private string $password;
+    public function __construct()
+    {
+        $env = require __DIR__ . '/env.php';
+        $this->host = $env['DB_HOST'];
+        $this->database = $env['DB_NAME'];
+        $this->username = $env['DB_USER'];
+        $this->password = $env['DB_PASS'];
+    } 
 
     public function connect(): PDO
     {
