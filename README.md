@@ -45,7 +45,7 @@ marah-mockup/
 - Alcance completo del proyecto: ver el documento de alcance incluido.
 - La API se documenta en la sección de abajo.
 
-## API REST (PHP + MySQL) – PA3
+## API REST (PHP + MySQL)
 
 API que expone los datos de la base de datos `marah_db` en formato JSON.
 
@@ -89,6 +89,7 @@ API que expone los datos de la base de datos `marah_db` en formato JSON.
 | Método | Ruta | Descripción |
 |---|---|---|
 | GET | `/api/clientes` | Lista todos los clientes |
+| GET | `/api/productos` | Lista los productos activos con su categoría |
 
 ### Formato de respuesta
 
