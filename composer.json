@@ -1,0 +1,15 @@
+{
+    "name": "marah/api",
+    "description": "API REST para sistema de gestión de ecommerce",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "config/",
+            "Core\\": "core/"
+        }
+    },
+    "require": {
+        "php": ">=8.1"
+    }
+}
