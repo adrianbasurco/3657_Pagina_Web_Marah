@@ -90,6 +90,7 @@ API que expone los datos de la base de datos `marah_db` en formato JSON.
 |---|---|---|
 | GET | `/api/clientes` | Lista todos los clientes |
 | GET | `/api/productos` | Lista los productos activos con su categoría |
+| GET | `/api/productos/{id}` | Obtiene un producto por su id |
 
 ### Formato de respuesta
 
