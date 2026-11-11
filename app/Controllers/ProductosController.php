@@ -25,4 +25,15 @@ class ProductosController
             'Productos obtenidos correctamente'
         );
     }
+    public function show(int $id): void
+    {
+        $producto = $this->productos->obtenerPorId($id);
+        if (!$producto) {
+            Response::error('Producto no encontrado', 404);
+        }
+        Response::success(
+            $producto,
+            'Producto encontrado'
+        );
+    }
 }

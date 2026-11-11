@@ -16,3 +16,8 @@ $router->get(
     '/api/productos',
     [$productosController, 'index']
 );
+// Obtener un producto por ID
+$router->get(
+    '/api/productos/{id}',
+    [$productosController, 'show']
+);
