@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Cliente;
 use App\Models\Clientes;
 use Core\Request;
 use Core\Response;
