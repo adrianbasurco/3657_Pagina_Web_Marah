@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Middleware\CorsMiddleware;
 use Config\Database;
+use Core\Response;
 use Core\Router;
 
 // ==============================
@@ -16,9 +17,12 @@ CorsMiddleware::handle();
 // CONEXIÓN
 // =====================================
 
-$database = new Database();
-$db = $database->connect();
-
+    try{
+        $database = new Database();
+        $db = $database->connect();
+    } catch (PDOException $e) {
+        Response::error('Error al conectar con la base de datos', 500);
+    }
 
 // =====================================
 // ROUTER
