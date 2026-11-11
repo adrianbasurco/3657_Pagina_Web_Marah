@@ -1,11 +1,18 @@
 <?php
 
 use App\Controllers\ClientesController;
+use App\Controllers\ProductosController;
 
 $clientesController = new ClientesController($db);
+$productosController = new ProductosController($db);
 
 // Listar clientes
 $router->get(
     '/api/clientes',
     [$clientesController, 'index']
+);
+// Listar Productos
+$router->get(
+    '/api/productos',
+    [$productosController, 'index']
 );
