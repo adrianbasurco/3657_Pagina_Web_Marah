@@ -39,7 +39,23 @@ class ProductosController
     public function store(): void
     {
         $datos = Request::body();
+        // Validar campos obligatorios
+        if (empty($datos['nombre']) || empty($datos['presentacion']) || empty($datos['id_categoria'])) {
+            Response::error('Faltan datos obligatorios: nombre, presentacion e id_categoria', 400);
+        }
+
+        // Validar precio
+        if (!isset($datos['precio']) || !is_numeric($datos['precio']) || $datos['precio'] <= 0) {
+            Response::error('El precio debe ser un número mayor a 0', 400);
+        }
+
+        //Validar stock
+        if (isset($datos['stock']) && (!is_numeric($datos['stock']) || $datos['stock'] < 0)) {
+            Response::error('El stock debe ser un número mayor o igual a 0', 400);
+        }
+
         $id = $this->productos->crear($datos);
+
         Response::success(
             ['id_producto' => $id],
             'Producto creado correctamente',
