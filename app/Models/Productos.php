@@ -35,6 +35,7 @@ class Productos
 
         return $stmt->fetchAll();
     }
+
     public function obtenerPorId(int $id): array|false
     {
         $sql = "
@@ -57,6 +58,7 @@ class Productos
 
         return $stmt->fetch();
     }
+
     public function crear(array $datos): int
     {
         $sql = "
@@ -77,5 +79,31 @@ class Productos
         ]);
 
         return (int) $this->db->lastInsertId();
+    }
+
+    public function actualizar(int $id, array $datos): void
+    {
+        $sql = "
+        UPDATE productos
+        SET
+        id_categoria    = :id_categoria,
+        nombre          = :nombre,
+        descripcion     = :descripcion,
+        presentacion    = :presentacion,
+        precio          = :precio,
+        stock           = :stock
+        WHERE id_producto = :id
+        ";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt -> execute([
+            'id'            =>$id,
+            'id_categoria'  =>$datos['id_categoria'],
+            'nombre'        =>$datos['nombre'],
+            'descripcion'   =>$datos['descripcion'] ?? null,
+            'presentacion'  =>$datos['presentacion'],
+            'precio'        =>$datos['precio'],
+            'stock'         =>$datos['stock'] ?? 0,
+        ]);
     }
 }

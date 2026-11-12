@@ -26,3 +26,9 @@ $router->post(
     '/api/productos',
     [$productosController, 'store']
 );
+// Actualizar un producto
+$router->put(
+    '/api/productos/{id}',
+    [$productosController, 'update']
+);
+
