@@ -106,4 +106,16 @@ class Productos
             'stock'         =>$datos['stock'] ?? 0,
         ]);
     }
+
+    public function desactivar(int $id): void
+    {
+        $sql ="
+        UPDATE productos
+        SET activo = 0
+        WHERE id_producto = :id
+        ";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt -> execute(['id' => $id]);
+    }
 }

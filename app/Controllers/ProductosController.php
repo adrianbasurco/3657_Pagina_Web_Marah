@@ -73,6 +73,21 @@ class ProductosController
         );
     }
 
+    public function destroy(int $id): void
+    {
+        $producto = $this->productos->obtenerPorId($id);
+        if (!$producto) {
+            Response::error('Producto no encontrado', 404);
+        }
+        $this->productos->desactivar($id);
+
+        Response::success(
+            ['id_producto' => $id],
+            'Producto eliminado correctamente',
+            200
+        );
+    }
+
     private function validar(array $datos): void
     {
 

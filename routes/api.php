@@ -31,4 +31,8 @@ $router->put(
     '/api/productos/{id}',
     [$productosController, 'update']
 );
-
+// eliminar un producto
+$router->delete(
+    '/api/productos/{id}',
+    [$productosController, 'destroy']
+);
