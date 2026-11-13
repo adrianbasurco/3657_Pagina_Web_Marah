@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AuthController;
 use App\Controllers\ClientesController;
 use App\Controllers\ProductosController;
 use App\Controllers\CategoriasController;
@@ -8,6 +9,7 @@ use App\Controllers\CategoriasController;
 $clientesController = new ClientesController($db);
 $productosController = new ProductosController($db);
 $categoriasController = new CategoriasController($db);
+$authcontroller = new AuthController($db);
 
 
 // Listar clientes
@@ -44,4 +46,19 @@ $router->delete(
 $router->get(
     '/api/categorias',
     [$categoriasController, 'index']
+);
+//Login de usuario
+$router->post(
+    '/api/login',
+    [$authcontroller, 'login']
+);
+//Logout de usuario
+$router->post(
+    '/api/logout',
+    [$authcontroller, 'logout']
+);
+//Verificar sesión
+$router->get(
+    '/api/sesion',
+    [$authcontroller, 'sesion']
 );

@@ -2,6 +2,11 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+session_start([
+    'cookie_httponly' => true,
+    'cookie_samesite' => 'Strict',
+]);
+
 use App\Middleware\CorsMiddleware;
 use Config\Database;
 use Core\Response;
