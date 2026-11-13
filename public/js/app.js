@@ -39,6 +39,15 @@ function mostrarTabla(lista) {
     const tabla = document.getElementById('tabla');
     tabla.innerHTML = '';
 
+    if (lista.length === 0) {
+        tabla.innerHTML = `
+        <tr>
+            <td colspan="4" class="p-3 text-center text-slate-500">No se encontraron productos</td>
+        </tr>
+    `;
+        return
+    }
+
     lista.forEach(producto => {
 
         tabla.innerHTML += `
@@ -52,14 +61,28 @@ function mostrarTabla(lista) {
     });
 }
 
+cargarProductos();
 
+document.getElementById('formBusqueda').addEventListener('submit', (evento) => {
+    evento.preventDefault();
 
+    const texto = document.getElementById('nombre').value.toLowerCase();
+    const categoria = document.getElementById('categoria').value;
+    const soloStock = document.querySelector('input[name="solo_stock"]').checked;
+    const rango = document.querySelector('input[name="rango"]:checked')?.value;
 
+    const filtrados = productos.filter(producto => {
+        const precio = Number(producto.precio);
 
+        if (texto && !producto.nombre.toLowerCase().includes(texto)) return false;
+        if (categoria && producto.categoria !== categoria) return false;
+        if (soloStock && producto.stock <= 0) return false;
+        if (rango === 'bajo' && precio > 15) return false;
+        if (rango === 'medio' && (precio < 15 || precio > 30)) return false;
+        if (rango === 'alto' && precio <= 30) return false;
 
+        return true;
+    });
 
-
-
-
-
-    cargarProductos();
+    mostrarTabla(filtrados);
+});
