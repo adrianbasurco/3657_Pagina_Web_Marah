@@ -1,45 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marah | Administración</title>
-  <link rel="stylesheet" href="css/output.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marah | Administración</title>
+    <link rel="stylesheet" href="css/output.css">
 </head>
+
 <body class="bg-slate-50 font-sans text-slate-700 antialiased">
 
-  <!-- ENCABEZADO -->
-  <header class="border-b border-slate-200 bg-white">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-      <a href="index.html" class="flex items-center gap-2 text-xl font-extrabold text-brand-700">
-        <img src="img/logo-Marah.png" alt="Marah" class="h-9 w-9 object-contain">
-        <span>Marah · Admin</span>
-      </a>
-      <a href="index.html" class="text-sm font-medium text-slate-600 transition hover:text-brand-600">Ver tienda →</a>
-    </div>
-  </header>
+    <!-- ENCABEZADO -->
+    <header class="border-b border-slate-200 bg-white">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-extrabold text-brand-700">
+                <img src="img/logo-Marah.png" alt="Marah" class="h-9 w-9 object-contain">
+                <span>Marah · Admin</span>
+            </a>
+            <a href="index.html" class="text-sm font-medium text-slate-600 transition hover:text-brand-600">Ver tienda
+                →</a>
+        </div>
+    </header>
 
-  <main class="mx-auto max-w-6xl px-4 py-10">
-    <h1 class="text-2xl font-bold text-slate-900 md:text-3xl">Productos</h1>
-    <p class="mt-2 text-slate-500">Crea, edita y elimina los productos de la tienda.</p>
+    <main class="mx-auto max-w-6xl px-4 py-10">
+        <h1 class="text-2xl font-bold text-slate-900 md:text-3xl">Productos</h1>
+        <p class="mt-2 text-slate-500">Crea, edita y elimina los productos de la tienda.</p>
 
-    <!-- TABLA DE PRODUCTOS -->
-    <div class="mt-8 overflow-x-auto rounded-xl shadow-sm ring-1 ring-slate-200">
-      <table class="min-w-full divide-y divide-slate-200 text-sm">
-        <thead class="bg-brand-600 text-left text-xs uppercase tracking-wide text-white">
-          <tr>
-            <th scope="col" class="p-3 font-semibold">Producto</th>
-            <th scope="col" class="p-3 font-semibold">Categoría</th>
-            <th scope="col" class="p-3 font-semibold">Precio</th>
-            <th scope="col" class="p-3 font-semibold">Stock</th>
-            <th scope="col" class="p-3 text-right font-semibold">Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="tabla-admin" class="divide-y divide-slate-200 bg-white"></tbody>
-      </table>
-    </div>
-  </main>
+        <!-- FORMULARIO: crear / editar producto -->
+        <form id="form-producto"
+            class="mt-8 grid gap-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 md:grid-cols-2">
+            <h2 id="titulo-form" class="text-lg font-semibold text-slate-900 md:col-span-2">Nuevo producto</h2>
 
-  <script src="js/admin.js"></script>
+            <input type="hidden" id="id_producto">
+
+            <div>
+                <label for="nombre" class="mb-1 block text-sm font-medium">Nombre</label>
+                <input type="text" id="nombre" required class="campo">
+            </div>
+
+            <div>
+                <label for="presentacion" class="mb-1 block text-sm font-medium">Presentación</label>
+                <input type="text" id="presentacion" placeholder="Ej.: 500 ml" required class="campo">
+            </div>
+
+            <div>
+                <label for="id_categoria" class="mb-1 block text-sm font-medium">Categoría</label>
+                <select id="id_categoria" required class="campo">
+                    <option value="">-- Elige una categoría --</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="precio" class="mb-1 block text-sm font-medium">Precio (S/.)</label>
+                    <input type="number" id="precio" step="0.01" min="0.01" required class="campo">
+                </div>
+                <div>
+                    <label for="stock" class="mb-1 block text-sm font-medium">Stock</label>
+                    <input type="number" id="stock" step="1" min="0" value="0" class="campo">
+                </div>
+            </div>
+
+            <div class="md:col-span-2">
+                <label for="descripcion" class="mb-1 block text-sm font-medium">Descripción</label>
+                <textarea id="descripcion" rows="2" class="campo"></textarea>
+            </div>
+
+            <div class="md:col-span-2">
+                <button type="submit" class="btn-primary">Guardar producto</button>
+            </div>
+        </form>
+
+        <!-- TABLA DE PRODUCTOS -->
+        <div class="mt-8 overflow-x-auto rounded-xl shadow-sm ring-1 ring-slate-200">
+            <table class="min-w-full divide-y divide-slate-200 text-sm">
+                <thead class="bg-brand-600 text-left text-xs uppercase tracking-wide text-white">
+                    <tr>
+                        <th scope="col" class="p-3 font-semibold">Producto</th>
+                        <th scope="col" class="p-3 font-semibold">Categoría</th>
+                        <th scope="col" class="p-3 font-semibold">Precio</th>
+                        <th scope="col" class="p-3 font-semibold">Stock</th>
+                        <th scope="col" class="p-3 text-right font-semibold">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-admin" class="divide-y divide-slate-200 bg-white"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/admin.js"></script>
 </body>
+
 </html>

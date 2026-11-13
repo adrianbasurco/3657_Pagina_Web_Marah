@@ -9,6 +9,17 @@ async function cargarProductos() {
     mostrarTablaAdmin(productos);
 }
 
+async function cargarCategorias() {
+    const respuesta = await fetch('api/categorias');
+    const resultado = await respuesta.json();
+
+    const select = document.getElementById('id_categoria');
+
+    resultado.data.forEach(categoria => {
+        select.innerHTML += `<option value="${categoria.id_categoria}">${categoria.nombre}</option>`;
+    });
+}
+
 function mostrarTablaAdmin(lista) {
     const tabla = document.getElementById('tabla-admin');
     tabla.innerHTML = '';
@@ -49,3 +60,6 @@ document.getElementById('tabla-admin').addEventListener('click', async (evento) 
         cargarProductos();
     }
 });
+
+cargarProductos();
+cargarCategorias();
