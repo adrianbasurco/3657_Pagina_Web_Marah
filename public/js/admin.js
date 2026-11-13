@@ -61,5 +61,37 @@ document.getElementById('tabla-admin').addEventListener('click', async (evento) 
     }
 });
 
+// =========================================================================================
+// FORMULARIO (crear)
+// =========================================================================================
+
+document.getElementById('form-producto').addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+
+    const datos = {
+        id_categoria: Number(document.getElementById('id_categoria').value),
+        nombre:       document.getElementById('nombre').value,
+        presentacion: document.getElementById('presentacion').value,
+        precio:       Number(document.getElementById('precio').value),
+        stock:        Number(document.getElementById('stock').value),
+        descripcion:  document.getElementById('descripcion').value
+    };
+
+    const respuesta = await fetch('api/productos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+    });
+    const resultado = await respuesta.json();
+
+    alert(resultado.message);
+
+    if (resultado.success) {
+        evento.target.reset();
+        cargarProductos();
+    }
+});
+
+
 cargarProductos();
 cargarCategorias();
