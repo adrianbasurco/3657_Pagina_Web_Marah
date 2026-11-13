@@ -28,5 +28,24 @@ function mostrarTablaAdmin(lista) {
         `;
     });
 }
-
 cargarProductos();
+
+document.getElementById('tabla-admin').addEventListener('click', async (evento) => {
+    const boton = evento.target;
+
+    if (boton.classList.contains('btn-eliminar')) {
+        const id = boton.dataset.id;
+
+        if (!confirm('¿Seguro que deseas eliminar este producto?')) {
+            return;
+        }
+
+        const respuesta = await fetch(`api/productos/${id}`, {
+            method: 'DELETE'
+        });
+        const resultado = await respuesta.json();
+
+        alert(resultado.message);
+        cargarProductos();
+    }
+});
