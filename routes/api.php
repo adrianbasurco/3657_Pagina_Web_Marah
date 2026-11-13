@@ -2,9 +2,13 @@
 
 use App\Controllers\ClientesController;
 use App\Controllers\ProductosController;
+use App\Controllers\CategoriasController;
+
 
 $clientesController = new ClientesController($db);
 $productosController = new ProductosController($db);
+$categoriasController = new CategoriasController($db);
+
 
 // Listar clientes
 $router->get(
@@ -35,4 +39,9 @@ $router->put(
 $router->delete(
     '/api/productos/{id}',
     [$productosController, 'destroy']
+);
+//listar por Categoria
+$router->get(
+    '/api/categorias',
+    [$categoriasController, 'index']
 );
