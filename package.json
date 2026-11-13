@@ -4,8 +4,8 @@
   "description": "Mockup estático de Marah, sitio web informativo de venta de kéfir de leche (HTML + Tailwind CSS). Proceso de Aprendizaje 2 - Programación Web Básica.",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/output.css --minify",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
+    "build": "tailwindcss -i ./src/styles.css -o ./public/css/output.css --minify",
+    "dev": "tailwindcss -i ./src/styles.css -o ./public/css/output.css --watch"
   },
   "keywords": ["tailwindcss", "mockup", "html"],
   "license": "ISC",

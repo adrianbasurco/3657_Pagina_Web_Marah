@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // Tailwind escanea estos archivos para generar solo las clases utilizadas
-  content: ["./src/**/*.html"],
+  content: ["./public/**/*.{html,js}"],
   theme: {
     extend: {
       // Paleta de marca personalizada: se usa como bg-brand-600, text-brand-700, etc.
