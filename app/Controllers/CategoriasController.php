@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Categorias;
-use Core\Request;
 use Core\Response;
 use PDO;
 
@@ -18,7 +17,7 @@ class CategoriasController
 
     public function index(): void
     {
-        $categoria = $this->categorias->obtenerPorCategoria();
+        $categoria = $this->categorias->obtenerTodos();
 
         Response::success(
             $categoria,

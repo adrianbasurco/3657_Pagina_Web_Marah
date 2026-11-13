@@ -35,12 +35,12 @@ $router->put(
     '/api/productos/{id}',
     [$productosController, 'update']
 );
-// eliminar un producto
+// Eliminar un producto
 $router->delete(
     '/api/productos/{id}',
     [$productosController, 'destroy']
 );
-//listar por Categoria
+// Listar Categorías
 $router->get(
     '/api/categorias',
     [$categoriasController, 'index']

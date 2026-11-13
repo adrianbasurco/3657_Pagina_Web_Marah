@@ -13,7 +13,7 @@ class Categorias
         $this->db = $db;
     }
 
-public function obtenerPorCategoria(): array
+    public function obtenerTodos(): array
     {
         $sql = "
             SELECT 
@@ -29,19 +29,4 @@ public function obtenerPorCategoria(): array
 
         return $stmt->fetchAll();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
