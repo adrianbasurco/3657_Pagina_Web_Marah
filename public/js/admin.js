@@ -39,7 +39,6 @@ function mostrarTablaAdmin(lista) {
         `;
     });
 }
-cargarProductos();
 
 document.getElementById('tabla-admin').addEventListener('click', async (evento) => {
     const boton = evento.target;
@@ -59,14 +58,32 @@ document.getElementById('tabla-admin').addEventListener('click', async (evento) 
         alert(resultado.message);
         cargarProductos();
     }
+
+    if (boton.classList.contains('btn-editar')) {
+        const id = Number(boton.dataset.id);
+        const producto = productos.find(p => p.id_producto === id);
+
+        document.getElementById('id_producto').value = producto.id_producto;
+        document.getElementById('nombre').value = producto.nombre;
+        document.getElementById('presentacion').value = producto.presentacion;
+        document.getElementById('id_categoria').value = producto.id_categoria;
+        document.getElementById('precio').value = producto.precio;
+        document.getElementById('stock').value = producto.stock;
+        document.getElementById('descripcion').value = producto.descripcion ?? '';
+
+        document.getElementById('titulo-form').textContent = 'Editar producto';
+        document.getElementById('form-producto').scrollIntoView({ behavior: 'smooth' });
+    }
 });
 
-// =========================================================================================
-// FORMULARIO (crear)
-// =========================================================================================
+// =====================================
+// FORMULARIO (crear y editar)
+// =====================================
 
 document.getElementById('form-producto').addEventListener('submit', async (evento) => {
     evento.preventDefault();
+
+    const id = document.getElementById('id_producto').value;
 
     const datos = {
         id_categoria: Number(document.getElementById('id_categoria').value),
@@ -77,8 +94,11 @@ document.getElementById('form-producto').addEventListener('submit', async (event
         descripcion:  document.getElementById('descripcion').value
     };
 
-    const respuesta = await fetch('api/productos', {
-        method: 'POST',
+    const url    = id ? `api/productos/${id}` : 'api/productos';
+    const metodo = id ? 'PUT' : 'POST';
+
+    const respuesta = await fetch(url, {
+        method: metodo,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(datos)
     });
@@ -87,11 +107,18 @@ document.getElementById('form-producto').addEventListener('submit', async (event
     alert(resultado.message);
 
     if (resultado.success) {
-        evento.target.reset();
+        limpiarFormulario();
         cargarProductos();
     }
 });
 
+function limpiarFormulario() {
+    document.getElementById('form-producto').reset();
+    document.getElementById('id_producto').value = '';
+    document.getElementById('titulo-form').textContent = 'Nuevo producto';
+}
+
+document.getElementById('btn-cancelar').addEventListener('click', limpiarFormulario);
 
 cargarProductos();
 cargarCategorias();

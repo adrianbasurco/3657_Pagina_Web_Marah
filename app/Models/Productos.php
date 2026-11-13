@@ -18,6 +18,7 @@ class Productos
         $sql = "
             SELECT 
                 p.id_producto,
+                p.id_categoria,
                 p.nombre,
                 p.descripcion,
                 p.presentacion,
@@ -41,6 +42,7 @@ class Productos
         $sql = "
             SELECT
                 p.id_producto,
+                p.id_categoria,
                 p.nombre,
                 p.descripcion,
                 p.presentacion,
@@ -96,26 +98,26 @@ class Productos
         ";
 
         $stmt = $this->db->prepare($sql);
-        $stmt -> execute([
-            'id'            =>$id,
-            'id_categoria'  =>$datos['id_categoria'],
-            'nombre'        =>$datos['nombre'],
-            'descripcion'   =>$datos['descripcion'] ?? null,
-            'presentacion'  =>$datos['presentacion'],
-            'precio'        =>$datos['precio'],
-            'stock'         =>$datos['stock'] ?? 0,
+        $stmt->execute([
+            'id'            => $id,
+            'id_categoria'  => $datos['id_categoria'],
+            'nombre'        => $datos['nombre'],
+            'descripcion'   => $datos['descripcion'] ?? null,
+            'presentacion'  => $datos['presentacion'],
+            'precio'        => $datos['precio'],
+            'stock'         => $datos['stock'] ?? 0,
         ]);
     }
 
     public function desactivar(int $id): void
     {
-        $sql ="
+        $sql = "
         UPDATE productos
         SET activo = 0
         WHERE id_producto = :id
         ";
 
         $stmt = $this->db->prepare($sql);
-        $stmt -> execute(['id' => $id]);
+        $stmt->execute(['id' => $id]);
     }
 }
