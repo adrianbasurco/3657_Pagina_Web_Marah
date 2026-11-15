@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Middleware\AuthMiddleware;
 use App\Models\Productos;
 use Core\Request;
 use Core\Response;
@@ -40,6 +41,9 @@ class ProductosController
 
     public function store(): void
     {
+
+        AuthMiddleware::handle();
+
         $datos = Request::body();
 
         $this->validar($datos);
@@ -55,6 +59,9 @@ class ProductosController
 
     public function update(int $id): void
     {
+
+        AuthMiddleware::handle();
+
         $producto = $this->productos->obtenerPorId($id);
         if (!$producto) {
             Response::error('Producto no encontrado', 404);
@@ -75,6 +82,9 @@ class ProductosController
 
     public function destroy(int $id): void
     {
+
+        AuthMiddleware::handle();
+
         $producto = $this->productos->obtenerPorId($id);
         if (!$producto) {
             Response::error('Producto no encontrado', 404);

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Middleware\AuthMiddleware;
 use App\Models\Clientes;
 use Core\Request;
 use Core\Response;
@@ -18,6 +19,9 @@ class ClientesController
 
     public function index(): void
     {
+
+        AuthMiddleware::handle();
+
         $cliente = $this->cliente->obtenerTodos();
 
         Response::success(

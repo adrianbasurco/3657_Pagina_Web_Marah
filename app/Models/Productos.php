@@ -72,7 +72,7 @@ class Productos
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            'id_categoria' => $datos['id_categoria'],
+            'id_categoria' => $datos['id_categoria'],       
             'nombre'       => $datos['nombre'],
             'descripcion'  => $datos['descripcion'] ?? null,
             'presentacion' => $datos['presentacion'],
