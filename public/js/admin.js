@@ -18,20 +18,20 @@ async function cargarCategorias() {
     resultado.data.forEach(categoria => {
         select.innerHTML += `<option value="${categoria.id_categoria}">${categoria.nombre}</option>`;
     });
-
-    async function verificarSesion() {
+}
+async function verificarSesion() {
     const respuesta = await fetch('api/sesion');
     const resultado = await respuesta.json();
 
-        if (!resultado.success) {
+    if (!resultado.success) {
         window.location.href = 'login.html';
         return false;
-        }
-
-        document.getElementById('nombre-usuario').textContent = resultado.data.nombre;
-        return true;
     }
+
+    document.getElementById('nombre-usuario').textContent = resultado.data.nombre;
+    return true;
 }
+
 
 function mostrarTablaAdmin(lista) {
     const tabla = document.getElementById('tabla-admin');
@@ -100,14 +100,14 @@ document.getElementById('form-producto').addEventListener('submit', async (event
 
     const datos = {
         id_categoria: Number(document.getElementById('id_categoria').value),
-        nombre:       document.getElementById('nombre').value,
+        nombre: document.getElementById('nombre').value,
         presentacion: document.getElementById('presentacion').value,
-        precio:       Number(document.getElementById('precio').value),
-        stock:        Number(document.getElementById('stock').value),
-        descripcion:  document.getElementById('descripcion').value
+        precio: Number(document.getElementById('precio').value),
+        stock: Number(document.getElementById('stock').value),
+        descripcion: document.getElementById('descripcion').value
     };
 
-    const url    = id ? `api/productos/${id}` : 'api/productos';
+    const url = id ? `api/productos/${id}` : 'api/productos';
     const metodo = id ? 'PUT' : 'POST';
 
     const respuesta = await fetch(url, {
