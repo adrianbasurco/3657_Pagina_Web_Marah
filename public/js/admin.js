@@ -18,6 +18,19 @@ async function cargarCategorias() {
     resultado.data.forEach(categoria => {
         select.innerHTML += `<option value="${categoria.id_categoria}">${categoria.nombre}</option>`;
     });
+
+    async function verificarSesion() {
+    const respuesta = await fetch('api/sesion');
+    const resultado = await respuesta.json();
+
+        if (!resultado.success) {
+        window.location.href = 'login.html';
+        return false;
+        }
+
+        document.getElementById('nombre-usuario').textContent = resultado.data.nombre;
+        return true;
+    }
 }
 
 function mostrarTablaAdmin(lista) {
@@ -120,5 +133,28 @@ function limpiarFormulario() {
 
 document.getElementById('btn-cancelar').addEventListener('click', limpiarFormulario);
 
-cargarProductos();
-cargarCategorias();
+// =====================================
+// CERRAR SESIÓN
+// =====================================
+
+document.getElementById('btn-logout').addEventListener('click', async () => {
+    await fetch('api/logout', { method: 'POST' });
+    window.location.href = 'login.html';
+});
+
+// =====================================
+// INICIO
+// =====================================
+
+async function iniciar() {
+    const haySesion = await verificarSesion();
+
+    if (!haySesion) {
+        return;
+    }
+
+    cargarProductos();
+    cargarCategorias();
+}
+
+iniciar();
