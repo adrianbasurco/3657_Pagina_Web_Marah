@@ -35,8 +35,10 @@
   <main>
 
     <!-- HERO: propuesta de valor y llamadas a la acción -->
-    <section id="inicio" aria-labelledby="titulo-hero"
-      class="bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 text-white">
+    <section id="inicio" aria-labelledby="titulo-hero" class="relative isolate overflow-hidden bg-brand-900 text-white">
+      <img src="img/hero.jpg" alt="" class="absolute inset-0 -z-20 h-full w-full object-cover">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-brand-900/90 via-brand-900/60 to-transparent"
+        aria-hidden="true"></div>
       <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:py-24">
         <div>
           <p
@@ -52,12 +54,7 @@
             <a href="#catalogo" class="btn-outline">Ver productos</a>
           </div>
         </div>
-        <div class="hidden justify-center md:flex">
-          <div
-            class="flex h-64 w-64 rotate-3 items-center justify-center rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-white/30 transition hover:rotate-0">
-            <img src="img/logo-Marah.png" alt="Logo de Marah" class="h-full w-full object-contain">
-          </div>
-        </div>
+        
       </div>
     </section>
 
@@ -67,7 +64,7 @@
       <p class="mt-2 text-slate-500">Una muestra de nuestras presentaciones. Datos de ejemplo para el mockup.</p>
 
       <div id="lista-productos" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        
+
       </div>
     </section>
 
@@ -125,7 +122,7 @@
                 </tr>
               </thead>
               <tbody id="tabla" class="divide-y divide-slate-200 bg-white">
-                
+
               </tbody>
             </table>
           </div>
