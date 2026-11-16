@@ -22,7 +22,7 @@ function mostrarCaralogo(lista) {
             <article class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
                 <img src="img/kefir-1litro.png" alt="${producto.nombre}" class="h-36 w-full bg-brand-50 object-contain p-2">
                 <div class="p-5">
-                    <p class="text-xs font-semibold uppercase text-brand-600">${producto.categoria}</p>
+                    <p class="text-xs font-semibold text-brand-600">${producto.categoria}</p>
                     <h3 class="mt-1 font-semibold text-slate-900">${producto.nombre} ${producto.presentacion}</h3>
                     <p class="mt-2 text-lg font-bold text-slate-900">S/. ${producto.precio}</p>
                     ${hayStock
