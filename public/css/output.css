@@ -970,6 +970,10 @@ video {
   white-space: nowrap;
 }
 
+.text-balance {
+  text-wrap: balance;
+}
+
 .rounded-2xl {
   border-radius: 1rem;
 }
@@ -1191,6 +1195,10 @@ video {
   font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif;
 }
 
+.font-serif {
+  font-family: Lora, Georgia, serif;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1252,6 +1260,10 @@ video {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.leading-\[1\.1\] {
+  line-height: 1.1;
 }
 
 .tracking-wide {
@@ -1486,6 +1498,11 @@ video {
 
   .md\:text-5xl {
     font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
     line-height: 1;
   }
 }
