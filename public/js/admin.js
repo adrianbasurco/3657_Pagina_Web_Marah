@@ -40,7 +40,7 @@ function mostrarTablaAdmin(lista) {
     lista.forEach(producto => {
         tabla.innerHTML += `
             <tr class="transition hover:bg-brand-50">
-                <td class="p-3 font-medium text-slate-900">${producto.nombre} ${producto.presentacion}</td>
+                <td class="p-3 font-medium text-stone-900">${producto.nombre} ${producto.presentacion}</td>
                 <td class="p-3">${producto.categoria}</td>
                 <td class="p-3">S/. ${producto.precio}</td>
                 <td class="p-3">${producto.stock}</td>

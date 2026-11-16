@@ -8,23 +8,24 @@
     content="Marah: venta de kéfir de leche artesanal. Consulta sabores, presentaciones, precios y stock.">
   <title>Marah | Kéfir de leche artesanal</title>
   <!-- ejecutar "npm run build" para crear public/css/output.css -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/output.css">
 </head>
 
-<body class="bg-slate-50 font-sans text-slate-700 antialiased">
+<body class="bg-stone-50 font-sans text-stone-700 antialiased">
 
   <!-- ENCABEZADO: enlaces a las secciones de la página -->
-  <header class="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
+  <header class="sticky top-0 z-10 border-b border-stone-200 bg-white/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between">
       <a href="#inicio" class="flex items-center gap-2 text-xl font-serif font-semibold text-brand-700">
         <img src="img/logo-Marah.png" alt="Marah" class="h-9 w-9 object-contain">
-        <span><span class="text-slate-900">Ma</span>rah</span>
-      </a>
+        <span>Marah</span> </a>
       <nav aria-label="Navegación principal">
-        <ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-slate-600">
+        <ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-stone-600">
           <li><a class="transition hover:text-brand-600" href="#inicio">Inicio</a></li>
           <li><a class="transition hover:text-brand-600" href="#catalogo">Catálogo</a></li>
           <li><a class="transition hover:text-brand-600" href="#buscador">Buscador</a></li>
@@ -47,11 +48,11 @@
         aria-hidden="true"></div>
       <div class="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 py-16 md:grid-cols-2 md:py-24 xl:py-16">
         <div>
-          <p
-            class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
+          <p class="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
             <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-300"></span> Elaboración artesanal
           </p>
-          <h1 id="titulo-hero" class="font-serif text-4xl font-semibold leading-[1.1] text-balance md:text-6xl">Kéfir de leche fresco, hecho
+          <h1 id="titulo-hero" class="font-serif text-4xl font-semibold leading-[1.1] text-balance md:text-6xl">Kéfir de
+            leche fresco, hecho
             con cuidado para tu mesa</h1>
           <p class="mt-4 max-w-xl text-brand-100">Conoce las presentaciones, sabores y precios del kéfir de Marah y
             consulta la disponibilidad antes de hacer tu pedido.</p>
@@ -66,8 +67,9 @@
 
     <!-- CATÁLOGO: categorías y productos destacados -->
     <section id="catalogo" aria-labelledby="titulo-catalogo" class="mx-auto max-w-6xl px-4 py-16">
-      <h2 id="titulo-catalogo" class="text-2xl font-serif font-semibold text-slate-900 md:text-3xl">Productos destacados</h2>
-      <p class="mt-2 text-slate-500">Elige tu presentación favorita. Precios y stock actualizados.</p>
+      <h2 id="titulo-catalogo" class="text-2xl font-serif font-semibold text-stone-900 md:text-3xl">Productos destacados
+      </h2>
+      <p class="mt-2 text-stone-500">Elige tu presentación favorita. Precios y stock actualizados.</p>
 
       <div id="lista-productos" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
@@ -77,13 +79,14 @@
     <!-- BUSCADOR: formulario con distintos controles  -->
     <section id="buscador" aria-labelledby="titulo-buscador" class="bg-white py-16">
       <div class="mx-auto max-w-6xl px-4">
-        <h2 id="titulo-buscador" class="text-2xl font-serif font-semibold text-slate-900 md:text-3xl">Buscador de kéfir</h2>
-        <p class="mt-2 text-slate-500">Filtra por nombre, categoría, rango de precio y disponibilidad.</p>
+        <h2 id="titulo-buscador" class="text-2xl font-serif font-semibold text-stone-900 md:text-3xl">Buscador de kéfir
+        </h2>
+        <p class="mt-2 text-stone-500">Filtra por nombre, categoría, rango de precio y disponibilidad.</p>
 
         <div class="mt-8 grid gap-8 lg:grid-cols-3">
           <!-- Formulario de filtros -->
           <form id="formBusqueda"
-            class="space-y-4 rounded-xl bg-slate-50 p-6 shadow ring-1 ring-slate-200 lg:col-span-1">
+            class="space-y-4 rounded-xl bg-stone-50 p-6 shadow ring-1 ring-stone-200 lg:col-span-1">
             <div>
               <label for="nombre" class="mb-1 block text-sm font-medium">Nombre del producto</label>
               <input type="text" id="nombre" name="nombre" placeholder="Ej.: natural" class="campo">
@@ -116,8 +119,8 @@
           </form>
 
           <!-- Tabla de resultados -->
-          <div class="overflow-x-auto rounded-xl shadow-sm ring-1 ring-slate-200 lg:col-span-2">
-            <table class="min-w-full divide-y divide-slate-200 text-sm">
+          <div class="overflow-x-auto rounded-xl shadow-sm ring-1 ring-stone-200 lg:col-span-2">
+            <table class="min-w-full divide-y divide-stone-200 text-sm">
               <caption class="sr-only">Resultados de ejemplo del buscador</caption>
               <thead class="bg-brand-600 text-left text-xs uppercase tracking-wide text-white">
                 <tr>
@@ -127,7 +130,7 @@
                   <th scope="col" class="p-3 font-semibold">Stock</th>
                 </tr>
               </thead>
-              <tbody id="tabla" class="divide-y divide-slate-200 bg-white">
+              <tbody id="tabla" class="divide-y divide-stone-200 bg-white">
 
               </tbody>
             </table>
@@ -138,22 +141,22 @@
 
     <!-- NOSOTROS: ventajas del servicio -->
     <section id="nosotros" aria-labelledby="titulo-nosotros" class="mx-auto max-w-6xl px-4 py-16">
-      <h2 id="titulo-nosotros" class="text-2xl font-serif font-semibold text-slate-900 md:text-3xl">¿Por qué Marah?</h2>
+      <h2 id="titulo-nosotros" class="text-2xl font-serif font-semibold text-stone-900 md:text-3xl">¿Por qué Marah?</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-200">
           <p class="text-3xl" aria-hidden="true">🌿</p>
-          <h3 class="mt-3 font-semibold text-slate-900">Fermentación natural</h3>
-          <p class="mt-2 text-sm text-slate-500">Kéfir de leche elaborado de forma artesanal en pequeños lotes.</p>
+          <h3 class="mt-3 font-semibold text-stone-900">Fermentación natural</h3>
+          <p class="mt-2 text-sm text-stone-500">Kéfir de leche elaborado de forma artesanal en pequeños lotes.</p>
         </div>
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-200">
           <p class="text-3xl" aria-hidden="true">💰</p>
-          <h3 class="mt-3 font-semibold text-slate-900">Precios claros</h3>
-          <p class="mt-2 text-sm text-slate-500">Precios en soles y disponibilidad visibles antes de pedir.</p>
+          <h3 class="mt-3 font-semibold text-stone-900">Precios claros</h3>
+          <p class="mt-2 text-sm text-stone-500">Precios en soles y disponibilidad visibles antes de pedir.</p>
         </div>
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-200">
           <p class="text-3xl" aria-hidden="true">📱</p>
-          <h3 class="mt-3 font-semibold text-slate-900">Pide desde tu celular</h3>
-          <p class="mt-2 text-sm text-slate-500">Sitio adaptable a celulares, tablets y computadoras.</p>
+          <h3 class="mt-3 font-semibold text-stone-900">Pide desde tu celular</h3>
+          <p class="mt-2 text-sm text-stone-500">Sitio adaptable a celulares, tablets y computadoras.</p>
         </div>
       </div>
     </section>
@@ -161,8 +164,9 @@
     <!-- CONTACTO: formulario de consultas -->
     <section id="contacto" aria-labelledby="titulo-contacto" class="bg-brand-50 py-16">
       <div class="mx-auto max-w-2xl px-4">
-        <h2 id="titulo-contacto" class="text-center text-2xl font-serif font-semibold text-slate-900 md:text-3xl">Contáctanos</h2>
-        <form class="mt-8 space-y-4 rounded-xl bg-white p-6 shadow ring-1 ring-slate-200">
+        <h2 id="titulo-contacto" class="text-center text-2xl font-serif font-semibold text-stone-900 md:text-3xl">
+          Contáctanos</h2>
+        <form class="mt-8 space-y-4 rounded-xl bg-white p-6 shadow ring-1 ring-stone-200">
           <div>
             <label for="c-nombre" class="mb-1 block text-sm font-medium">Nombre</label>
             <input type="text" id="c-nombre" name="nombre" required minlength="2" class="campo">
@@ -183,7 +187,7 @@
   </main>
 
   <!-- PIE DE PÁGINA: datos de contacto y derechos -->
-  <footer class="bg-slate-900 text-slate-300">
+  <footer class="bg-brand-900 text-brand-100">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-sm md:flex-row">
       <p>&copy; 2026 Marah. Desarrollado por Adrian Basurco</p>
       <address class="not-italic">Lima, Perú &middot; contacto@marah.com</address>
