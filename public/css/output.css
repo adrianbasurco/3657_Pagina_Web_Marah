@@ -1084,6 +1084,10 @@ video {
   background-color: rgb(43 51 20 / var(--tw-bg-opacity, 1));
 }
 
+.bg-brand-900\/70 {
+  background-color: rgb(43 51 20 / 0.7);
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1500,6 +1504,29 @@ video {
     justify-content: space-between;
   }
 
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .md\:bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+
+  .md\:from-brand-900\/90 {
+    --tw-gradient-from: rgb(43 51 20 / 0.9) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(43 51 20 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .md\:via-brand-900\/60 {
+    --tw-gradient-to: rgb(43 51 20 / 0)  var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), rgb(43 51 20 / 0.6) var(--tw-gradient-via-position), var(--tw-gradient-to);
+  }
+
+  .md\:to-transparent {
+    --tw-gradient-to: transparent var(--tw-gradient-to-position);
+  }
+
   .md\:object-\[center_35\%\] {
     -o-object-position: center 35%;
        object-position: center 35%;
@@ -1556,5 +1583,29 @@ video {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex {
+    display: flex;
+  }
+
+  .xl\:aspect-\[5\/2\] {
+    aspect-ratio: 5/2;
+  }
+
+  .xl\:items-center {
+    align-items: center;
+  }
+
+  .xl\:object-bottom {
+    -o-object-position: bottom;
+       object-position: bottom;
+  }
+
+  .xl\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
