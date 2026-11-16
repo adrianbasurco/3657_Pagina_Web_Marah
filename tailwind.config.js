@@ -17,6 +17,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "sans-serif"],
+        serif: ["Lora", "Georgia", "serif"],
       },
     },
   },
